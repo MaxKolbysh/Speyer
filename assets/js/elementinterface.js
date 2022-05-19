@@ -49,7 +49,7 @@
 										console.log(newData.dataset.sensornumber);
 										console.log(newData.dataset.sensornumber);
 										
-										topicCardValue.dataset.sensor=newData.dataset.sensornumber; // sensor and sensorval same data
+										topicCardValue.dataset.sensorId=newData.dataset.sensornumber; // sensor and sensorval same data
 										sensorCardValue.dataset.sensorval=newData.dataset.sensornumber;
 										modalBox.dataset.modalCounterHotspot = newData.id; 
 									});	
