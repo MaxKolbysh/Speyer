@@ -108,10 +108,19 @@
 										
  
 										<div id="controls" class="dim">
-											<label for="src">Input sensors topic:</label>
-											<form onsubmit="return false;"  >
 											
-												<input type="text" id="hotspottopic" name="hotspottopic" placeholder="Input topic">
+											
+												<label for="src">Sensors list:</label>
+												<select id="src"  name="dropdown" > 
+											
+													<option class="sensor"  id="sensor-1" data-sensorId="sensor-1">Loading...</option>
+													<option class="sensor"  id="sensor-2" data-sensorId="sensor-2">Loading...</option>
+													<option class="sensor"  id="sensor-3" data-sensorId="sensor-3">Loading...</option>
+													<option class="sensor"  id="sensor-4" data-sensorId="sensor-4">Loading...</option>
+													<option class="sensor"  id="sensor-5" data-sensorId="sensor-5">Loading...</option>
+												  
+												</select><br>
+												
 												
 
 											</form>
@@ -124,14 +133,8 @@
 												<input type="text" id="hotspotunit" name="hotspotunit" placeholder="Input marker unit">
 
 											</form>
-										<!--	
-											<label for="src">Sensors list:</label>
 											
-											<select id="src"  name="dropdown" > -->
-											<div id="sensor-container">
-											  <option class="sensor"  id="sensor-1" data-sensorId="sensor-1"></option>
-											</div>	 
-										<!--	</select><br>-->
+											
 									
 											
 											

@@ -147,7 +147,7 @@
 									hotspot.dataset.toggle ="modal"						// modal window now sstatic , but foe update
 									hotspot.dataset.target ="#exampleModalCenter"
 
-									hotspot.dataset.sensornumber = viewer.querySelector(".sensor").dataset.sensorid;   // changing from sensor
+									hotspot.dataset.sensornumber = document.querySelector("option:checked").dataset.sensor;   // changing from sensor
 									hotspot.dataset.position = position.toString();
 									
 									if (normal != null) {
@@ -162,7 +162,7 @@
 							
 									elementDataContainer.id= `elementdatacontainer-${hotspotCounter}`;
 									elementDataContainer.classList.add("elementdatacontainer");
-									elementDataContainer.dataset.sensorTopic = document.querySelector("#sensor-1").dataset.sensorTopic;
+									//elementDataContainer.dataset.sensorTopic = document.querySelector("#sensor-1").dataset.sensorTopic;
 									document.getElementById(`hotspot-${hotspotCounter}`).appendChild(elementDataContainer);
 									
 									let elementName = document.createElement("div");

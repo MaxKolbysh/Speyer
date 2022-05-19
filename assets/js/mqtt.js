@@ -1,8 +1,8 @@
-let host = 'sgrg.saint-gobain.com';
-let port = 443;
-let topic = 'VALUE/DE0161-SGR/TESTSENSORS/EF389C/TEMPERATURE';
-let username = 'websocket';
-let pw = 'ws-secret';
+let host = 'speyer.iiot.smr.saint-gobain.net';
+let port = 8883;
+let topic = 'VALUE/0006/LINIE-A/CAMPAIGN/STROM/HOUR';
+let username = 'ar_demonstration';
+let pw = 'Speyer123#';
 let useTLS = true;
 let cleansession = true;
 let reconnectTimeout = 3000;
@@ -105,7 +105,7 @@ function onMessageArrived(message) {
     
     
     
-    let userMessageTopic = document.getElementById("hotspottopic").value;
+   
     
 
 
@@ -125,16 +125,17 @@ function onMessageArrived(message) {
     $('#mqttdata').html('Temp is: ' +payload + ' °C');
     $('#mqttdatadinamic').html('Temp is: ' +payload + ' °C');
     
-    $('[data-sensor="sensor1"]').html(topic);
-    $('[data-sensor="sensor2"]').html(topic); /
-    $('[data-sensor="sensor4"]').html(topic);
-    $('[data-sensor="sensor5"]').html(topic);
+    $('[data-sensorId="sensor-1"]').html(topic);
+    $('[data-sensorId="sensor-2"]').html(topic);
+    $('[data-sensorId="sensor-3"]').html(topic); 
+    $('[data-sensorId="sensor-4"]').html(topic);
+    $('[data-sensorId="sensor-5"]').html(topic);
 
-    $('[data-sensorval="sensor1"]').html(payload );
-    $('[data-sensorval="sensor2"]').html(payload );
-    $('[data-sensorval="sensor3"]').html(payload );
-    $('[data-sensorval="sensor4"]').html(payload );
-    $('[data-sensorval="sensor5"]').html(payload );
+    $('[data-sensorval="sensor-1"]').html(payload );
+    $('[data-sensorval="sensor-2"]').html(payload );
+    $('[data-sensorval="sensor-3"]').html(payload );
+    $('[data-sensorval="sensor-4"]').html(payload );
+    $('[data-sensorval="sensor-5"]').html(payload );
 	
     /*
     tempData.push({
