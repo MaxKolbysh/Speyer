@@ -46,7 +46,8 @@
 										let newData = e.target.closest("[data-sensornumber]");
 										
 										if (!newData) return;
-										
+										console.log(newData.dataset.sensornumber);
+										console.log(newData.dataset.sensornumber);
 										
 										topicCardValue.dataset.sensor=newData.dataset.sensornumber; // sensor and sensorval same data
 										sensorCardValue.dataset.sensorval=newData.dataset.sensornumber;
@@ -147,7 +148,7 @@
 									hotspot.dataset.toggle ="modal"						// modal window now sstatic , but foe update
 									hotspot.dataset.target ="#exampleModalCenter"
 
-									hotspot.dataset.sensornumber = document.querySelector("option:checked").dataset.sensor;   // changing from sensor
+									hotspot.dataset.sensornumber = document.querySelector("option:checked").dataset.sensorid;   // changing from sensor
 									hotspot.dataset.position = position.toString();
 									
 									if (normal != null) {
