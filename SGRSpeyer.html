@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>test WebGL</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!--Some modal css-->
+	
+
+		<link rel="shortcut icon" href="images/favicon_color.png" type="image/png">
+	    
+	    
+	    <!-- The following libraries and polyfills are recommended to maximize browser support -->
+	    <!-- NOTE: you must adjust the paths as appropriate for your project -->
+	    
+	    	    <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+	    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+
+	    <!-- 💁 OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
+	    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+
+	    <!-- 💁 OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
+	    <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
+
+	    <!-- 💁 OPTIONAL: Fullscreen polyfill is needed to fully support AR features -->
+	    <script src="https://unpkg.com/fullscreen-polyfill@1.0.2/dist/fullscreen.polyfill.js"></script>
+
+	    <!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support -->
+	    <script src="https://unpkg.com/@magicleap/prismatic/prismatic.min.js"></script>
+	    
+	    <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+	    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+	    <!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-38E6070C8J"></script>
+
+		
+		<!--Bootstrap-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!--Modal script-->
+		
+		<!-- Mqttp-->
+    
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.js"></script>
+		<script type="text/javascript" src="assets/js/mqtt.js"></script>
+
+
+
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		
+		
+
+		 
+		
+		
+	</head>
+	<body class="subpage-nordfox">
+
+		
+								
+								<div id="card">
+								
+									
+									<!-- pol.plav.vl.plitka.b (Max К) -->
+									
+									<model-viewer  ondblclick="addHotspot()" onclick="selected()" id="modelblock" bounds="tight"    src="models/Speyer.glb" class="" 
+									ar 
+									ar-modes="webxr scene-viewer quick-look fallback" 
+									ar-scale="auto" 
+									magic-leap camera-controls environment-image="neutral" 
+									shadow-intensity="1"
+									orbit-sensitivity="0.7"
+
+									camera-orbit="0deg 75deg 50%"
+									max-camera-orbit="Infinity 88deg 50%"
+									min-camera-orbit="-Infinity 2.5deg 15%"
+									camera-controls enable-pan
+									
+								
+									autoplay>
+									<!--<button slot="hotspot-1" class="hotspot" id="hotspot-2" data-toggle="modal" data-target="#exampleModalCenter" data-sensornumber="sensor2" data-position="-10.364563373000458m 1.747439752840085m -21.0170276105123m" data-normal="0.41194080341979067m 0.7788401774882822m 0.4729828246436427m"><div id="elementdatacontainer-2" class="elementdatacontainer"><div class="element-name">no name</div><div class="annotation"><span data-sensorval="sensor2" id="spandata-2">30.8</span><span id="spanunit-2"> </span></div></div></button>-->
+										
+										
+										<button class="btn" id = "controls-button" onclick="myOpenClosemenu()">Open menu</button>
+										
+
+										<div class="btn-group" role="group" id="nav-button" >
+											<button type="button" class="btn btn-secondary" onclick="cameraPosition(this)" value="left" >Left</button>
+											<button type="button" class="btn btn-secondary"  onclick="cameraPosition(this)" value="top">Top</button>
+											<button type="button" class="btn btn-secondary"  onclick="cameraPosition(this)" value="front">Front</button>
+											<button type="button" class="btn btn-secondary"  onclick="cameraPosition(this)" value="back">Back</button>
+											<button type="button" class="btn btn-secondary"  onclick="cameraPosition(this)" value="right">Right</button>
+										</div>
+
+
+										
+										
+ 
+										<div id="controls" class="dim">
+											<label for="src">Input sensors topic:</label>
+											<form onsubmit="return false;"  >
+											
+												<input type="text" id="hotspottopic" name="hotspottopic" placeholder="Input topic">
+												
+
+											</form>
+											
+											<label for="src">Input custom marker name and unit:</label>
+											
+											<form >
+											
+												<input type="text" id="hotspottext" name="hotspottext" placeholder="Input marker name ">
+												<input type="text" id="hotspotunit" name="hotspotunit" placeholder="Input marker unit">
+
+											</form>
+										<!--	
+											<label for="src">Sensors list:</label>
+											
+											<select id="src"  name="dropdown" > -->
+											<div id="sensor-container">
+											  <option class="sensor"  id="sensor-1" data-sensorId="sensor-1"></option>
+											</div>	 
+										<!--	</select><br>-->
+									
+											
+											
+											<div>
+												<p>Status: <span id="connection-status" >...</span></p>
+												
+												
+											</div>
+												
+											<div class="center">
+												<button class="btn" onclick="myOpenClosemenu()">Hide menu</button>
+												<!--<button class="btn" onclick="addHotspotButton()">Add Hotspot</button>-->
+												<button class="btn" onclick="removeHotspotlast()">Remove last Data</button>
+												
+											</div>
+											
+											
+										  </div>
+										<div class="progress-bar hide" slot="progress-bar">
+											<div class="update-bar"></div>
+										</div>
+										
+									</model-viewer>
+									
+
+									
+
+
+									
+
+									
+
+									
+
+									
+									
+
+								
+
+								    
+								</div>
+								<!-- Modal window-->
+								<!-- Button trigger modal -->
+								
+								
+								<!-- Modal -->
+								<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content" >
+										<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLongTitle">Status</h5>
+										
+											
+										<div class="container-fluid">
+											<div id="status" class="alert">
+												<small>Loading...</small>
+											</div>
+											<div class="row">
+												<div class="col">
+													<div class="card">
+														<div class="card-body">
+															<div class="card-title">
+																<!--<div id="mqtt-topic">topic</div>-->
+																
+																<p>Topic: <span id="topic-card-value"  class="text-muted float-center" data-sensor="sensor-1">Unknown</span></p>
+																<p>Sensor value: <span id="sensor-card-value" data-sensorval="sensor-1" class="text-muted float-center">Unknown</span><span id="sensor-card-unit" class="text-muted float-center" > °C</span></p>
+																
+																
+															</div>
+														</div>
+														
+														
+													</div>
+												</div>
+											</div>
+											
+										</div>
+
+										</div>
+										<div class="modal-body">
+											
+											<input type="text" id="hotspottextmodal" name="hotspottext" placeholder="Change sensor name">
+											<input type="text" id="hotspotunitchange" name="hotspotunitchange" placeholder="Change marker unit">
+											<!--
+											<form onSubmit="return false;">
+											
+												<input type="text" id="hotspottext" name="hotspottext" placeholder="Input sensor name">
+											</form>
+											-->
+
+										</div>
+										<div class="modal-footer">
+										<button type="button" class="btn btn-danger" onclick="removeHotspot()" data-dismiss="modal">Delete marker</button>	
+										<button type="button" class="btn btn-success" onclick="updateHotspot()" data-dismiss="modal">Update marker</button>
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+									</div>
+								</div>
+
+								<!--Modal wondow  for allert-->
+								<div class="modal fade" id="ModalAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <h5 class="modal-title" id="exampleModalLabel">Allert</h5>
+										  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										  </button>
+										</div>
+										<div class="modal-body">
+											<div class="alert alert-warning" role="alert">
+												Input sensors topic first, to add on the 3dmodel
+											  </div>
+											
+										</div>
+										
+									  </div>
+									</div>
+								  </div>
+								
+								
+
+
+					</div>
+				</div>
+			</section>
+
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/elementinterface.js"></script>
+			<!-- 💁 Include both scripts below to support all browsers! -->
+			
+
+		
+		    <!-- Loads <model-viewer> for modern browsers: -->
+			<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+
+			<!-- Loads <model-viewer> for old browsers like IE11: -->
+			<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+	</body>
+</html>
