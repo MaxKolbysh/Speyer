@@ -64,7 +64,7 @@ function onConnectionLost(response) {
 
 
 
-
+/*
 
 const topicArray = [];   
 topicArray.push(topic);   // array for tests 
@@ -91,7 +91,7 @@ $(document).ready(function(){
     });
   });
 
-
+*/
 
 
 
@@ -100,6 +100,7 @@ $(document).ready(function(){
 
 function onMessageArrived(message) {
     let topic = message.destinationName;
+    
     let payload = message.payloadString;
 
     
@@ -126,16 +127,12 @@ function onMessageArrived(message) {
     $('#mqttdatadinamic').html('Temp is: ' +payload + ' °C');
     
     $('[data-sensorId="sensor-1"]').html(topic);
-    $('[data-sensorId="sensor-2"]').html(topic);
-    $('[data-sensorId="sensor-3"]').html(topic); 
-    $('[data-sensorId="sensor-4"]').html(topic);
-    $('[data-sensorId="sensor-5"]').html(topic);
+    $('[data-sensorId="sensor-2"]').html(topic2);
+    
 
     $('[data-sensorval="sensor-1"]').html(payload );
     $('[data-sensorval="sensor-2"]').html(payload );
-    $('[data-sensorval="sensor-3"]').html(payload );
-    $('[data-sensorval="sensor-4"]').html(payload );
-    $('[data-sensorval="sensor-5"]').html(payload );
+    
 	
     /*
     tempData.push({
